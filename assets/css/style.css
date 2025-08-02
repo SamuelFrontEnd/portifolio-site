@@ -1147,7 +1147,7 @@ body {
 /* Footer */
 .footer {
     width: 100%;
-    padding: 1rem;
+    padding: 2rem;
     background-color: var(--black);
     display: flex;
     justify-content: center;

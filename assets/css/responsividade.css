@@ -22,7 +22,7 @@
 
     /*Home*/
     .text-home h1 {
-        font-size: 4rem;
+        font-size: 2rem;
     }
 
     .text-home span {
@@ -446,4 +446,15 @@
     .text-contact h1 {
         font-size: 2.5rem;
     }
+  
+    .footer {
+    margin-top: 8rem;
+}
+
+
+#dp{
+    margin-top: 4em;
+    
+
+}
 }
