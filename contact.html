@@ -121,19 +121,19 @@
                     <h2>Envie sua mensagem</h2>
                     <form id="contact-form">
                         <label for="name">Nome*</label>
-                        <input type="text" name="user_name" required>
+                        <input type="text"id="name" name="user_name" required>
     
                         <label for="whatsapp">WhatsApp*</label>
-                        <input type="tel" name="user_phone" required>
+                        <input type="tel"  id="whatsapp"name="user_phone" required>
     
                         <label for="email">E-mail*</label>
-                        <input type="email" name="user_email" required>
+                        <input type="email" id="email"name="user_email" required>
     
                         <label for="company">Empresa (Opcional)</label>
-                        <input type="text" name="subject">
+                        <input type="text" id="company" name="subject">
     
                         <label for="message">Mensagem*</label>
-                        <textarea rows="5" name="message" required placeholder="Descreva um pouco do seu projeto..."></textarea>
+                        <textarea rows="5"id="message" name="message" required placeholder="Descreva um pouco do seu projeto..."></textarea>
     
                         <button type="submit" class="btn">Enviar Mensagem</button>
                         <p id="form-success" class="success-message">Sua mensagem foi enviada com sucesso!</p>
@@ -163,11 +163,25 @@
         AOS.init();
 
         // Máscara para o campo WhatsApp
-        document.getElementById('whatsapp').addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '');
-            value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
-            e.target.value = value;
-        });
+   document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Pega os valores do formulário
+    const nome = document.getElementById("name").value;
+    const telefone = document.getElementById("whatsapp").value;
+    const email = document.getElementById("email").value;
+    const empresa = document.getElementById("company").value || "Não informado";
+    const mensagem = document.getElementById("message").value;
+
+    // Monta o texto da mensagem
+    const texto = `Olá!%0A%0ANova mensagem do site:%0A%0A*Nome:* ${nome}%0A*Telefone:* ${telefone}%0A*Email:* ${email}%0A*Empresa:* ${empresa}%0A*Mensagem:* ${mensagem}`;
+
+    // Número de destino (coloque o seu número com DDD e sem espaços ou traços)
+    const numero = "5511952514426"; // EXEMPLO: 55 + DDD + número
+
+    // Redireciona para o WhatsApp com a mensagem pronta
+    window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
+  });
     </script>
 
 </body>
